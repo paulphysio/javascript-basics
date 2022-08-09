@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Portfolio Details - Personal Bootstrap Template</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <!-- =======================================================
+        * Template Name: Personal - v4.7.0
+        * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+      </head>
+<body>
+    
+    <br><br><br>
+    <div class="container">
+        <button id="nine" class="btn" onclick="nine()"></button>
+        <button id="eight" class="btn" onclick="eight()"></button>
+        <button id="seven" class="btn" onclick="seven()"></button><br>
+        <button id="six" class="btn"  onclick="six()"></button>
+        <button id="five" class="btn" onclick="five()"></button>
+        <button id="four" class="btn" onclick="four()"></button><br>
+        <button id="three" class="btn" onclick="three()"></button>
+        <button id="two" class="btn" onclick="two()"></button>
+        <button id="one" class="btn" onclick="one()"></button>
+    </div>
+    <br><br>
+    <div id="gameOver" class="container">
+
+    </div>
+    <style>
+        button.btn{
+            background-color: rgb(53, 51, 52);
+            width: 60px;
+            height: 60px;
+            padding-top: 10px;
+            color: white;
+
+        }
+        button.btn:focus {
+            background-color: rgb(3, 99, 59);
+            width: 60px;
+            height: 60px;
+            padding-top: 10px;
+            color: white;
+        }
+        button.btn:hover {
+            background-color: rgb(19, 98, 245);
+            width: 60px;
+            padding-top: 10px;
+            color: white;
+        }
+    </style>
+    <script>
+        game_over = false
+        let times = []
+        let num1, num2, num3, num4, num5, num6, num7, num8, num9
+        function nine(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num9 = document.getElementById('nine')
+                num9.innerText = 'X'
+                num9.classList.add('disabled')
+                num9.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num9 = document.getElementById('nine')
+                num9.innerText = 'O'
+                num9.classList.add('disabled')
+                num9.style = 'background-color: blue'
+                times.push('o')
+            }
+            
+            gameOver();
+        }
+
+        function eight(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num8 = document.getElementById('eight')
+                num8.innerText = 'X'
+                num8.classList.add('disabled')
+                num8.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num8 = document.getElementById('eight')
+                num8.innerText = 'O'
+                num8.classList.add('disabled')
+                num8.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+
+        function seven(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num7 = document.getElementById('seven')
+                num7.innerText = 'X'
+                num7.classList.add('disabled')
+                num7.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num7 = document.getElementById('seven')
+                num7.innerText = 'O'
+                num7.classList.add('disabled')
+                num7.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function six(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num6 = document.getElementById('six')
+                num6.innerText = 'X'
+                num6.classList.add('disabled')
+                num6.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num6 = document.getElementById('six')
+                num6.innerText = 'O'
+                num6.classList.add('disabled')
+                num6.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function five(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num5 = document.getElementById('five')
+                num5.innerText = 'X'
+                num5.classList.add('disabled')
+                num5.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num5 = document.getElementById('five')
+                num5.innerText = 'O'
+                num5.classList.add('disabled')
+                num5.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function four(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num4 = document.getElementById('four')
+                num4.innerText = 'X'
+                num4.classList.add('disabled')
+                num4.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num4 = document.getElementById('four')
+                num4.innerText = 'O'
+                num4.classList.add('disabled')
+                num4.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function three(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num3 = document.getElementById('three')
+                num3.innerText = 'X'
+                num3.classList.add('disabled')
+                num3.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num3 = document.getElementById('three')
+                num3.innerText = 'O'
+                num3.classList.add('disabled')
+                num3.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function two(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num2 = document.getElementById('two')
+                num2.innerText = 'X'
+                num2.classList.add('disabled')
+                num2.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num2 = document.getElementById('two')
+                num2.innerText = 'O'
+                num2.classList.add('disabled')
+                num2.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function one(){
+            if(times.length===0 || times[times.length - 1] === 'o' && game_over===false){
+                num1 = document.getElementById('one')
+                num1.innerText = 'X'
+                num1.classList.add('disabled')
+                num1.style = 'background-color: purple'
+                times.push('x')
+            }else if(times[times.length - 1] === 'x' && game_over===false){
+                num1 = document.getElementById('one')
+                num1.innerText = 'O'
+                num1.classList.add('disabled')
+                num1.style = 'background-color: blue'
+                times.push('o')
+            }
+            gameOver();
+        }
+        function gameOver(){
+            num9 = document.getElementById('nine')
+            num8 = document.getElementById('eight')
+            num7 = document.getElementById('seven')
+            num6 = document.getElementById('six')
+            num5 = document.getElementById('five')
+            num4 = document.getElementById('four')
+            num3 = document.getElementById('three')
+            num2 = document.getElementById('two')
+            num1 = document.getElementById('one')
+            if(num9.innerText === 'X' && num8.innerText === 'X' && num7.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num3.innerText === 'X' && num2.innerText === 'X' && num1.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num6.innerText === 'X' && num5.innerText === 'X' && num4.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num9.innerText === 'X' && num6.innerText === 'X' && num3.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num8.innerText === 'X' && num5.innerText === 'X' && num2.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num7.innerText === 'X' && num4.innerText === 'X' && num1.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num9.innerText === 'X' && num5.innerText === 'X' && num1.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }else if(num7.innerText === 'X' && num5.innerText === 'X' && num3.innerText === 'X'){
+                document.getElementById('gameOver').innerText = 'Player 1 is the winner'
+                game_over = true;
+            }
+
+            else if(num9.innerText === 'O' && num8.innerText === 'O' && num7.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num3.innerText === 'O' && num2.innerText === 'O' && num1.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num6.innerText === 'O' && num5.innerText === 'O' && num4.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num9.innerText === 'O' && num6.innerText === 'O' && num3.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num8.innerText === 'O' && num5.innerText === 'O' && num2.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num7.innerText === 'O' && num4.innerText === 'O' && num1.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num9.innerText === 'O' && num5.innerText === 'O' && num1.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(num7.innerText === 'O' && num5.innerText === 'O' && num3.innerText === 'O'){
+                document.getElementById('gameOver').innerText = 'Player 2 is the winner'
+                game_over = true;
+            }else if(times.length === 9 && game_over === false){
+                document.getElementById('gameOver').innerText = "It's a tie"
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Portfolio Details - Personal Bootstrap Template</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <!-- =======================================================
+        * Template Name: Personal - v4.7.0
+        * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+      </head>
+<body>
+    <br><br><br><br>
+    <div class="container">
+        <div id="row">
+            <div class="col-6 ">
+                <input id="num" class="form-control" type="text"/><button id="changer" class="btn btn-secondary" onclick="fab()">click</button>
+            </div>
+            <div class="col-6">
+            <input id="nth" class="form-control" type="text"/><button id="change" class="btn btn-secondary" onclick="nth()">click</button>
+            </div>
+        </div>
+       
+            <br>
+            <div style="max-width: 700px; text-align: left;" id="seq"></div>
+    </div>
+    <style>
+        button.btn {
+            color: white;
+            margin: auto;
+        }
+        input.form-control{
+            max-width: 300px;
+        }
+    </style>
+    <script>
+        function nth(){
+            const number = document.getElementById('nth').value
+            document.getElementById('seq').innerHTML=''
+            const numb = document.getElementById('num')
+            num = numb.value;
+            let prev_num = 1
+            let current_num = 1
+            i=1
+            for(i; i<=number; i++){
+                let next_num = current_num + prev_num
+                if(i>=number){
+                    console.log(current_num)
+                    const element = document.createElement('div')
+                    element.innerText = "The closest Fibonacci number is " +  current_num
+                    document.getElementById('seq').appendChild(element)
+                    document.getElementById('nth').value = i
+                    document.getElementById('num').value = current_num
+                }
+                
+                prev_num = current_num
+                current_num = next_num
+
+            }
+        }
+
+        function fab(num){
+            document.getElementById('seq').innerHTML=''
+            document.getElementById('changer')
+            const numb = document.getElementById('num')
+            num = numb.value;
+            let prev_num = 1
+            let current_num = 1
+            i=1
+            for(current_num; current_num<=num; current_num){
+                let next_num = current_num + prev_num
+                if(next_num>num || current_num===num){
+                    console.log(current_num)
+                    const element = document.createElement('div')
+                    element.innerText = "The closest Fibonacci number is " +  current_num
+                    document.getElementById('seq').appendChild(element)
+                    document.getElementById('nth').value = i
+                }
+                
+                prev_num = current_num
+                current_num = next_num
+                i++
+            }
+            
+        }
+    </script>
+</body>
+</html>

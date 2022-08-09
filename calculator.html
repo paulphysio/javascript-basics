@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Portfolio Details - Personal Bootstrap Template</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <!-- =======================================================
+        * Template Name: Personal - v4.7.0
+        * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+      </head>
+<body>
+    <br><br><br><br>
+    <div class="container" style="border: white;">
+        <input id="textbox" class="form-control" type="text" style="max-width: 280px;"><br>
+        <div class="container justify-content-center">
+            <button id="9" class="btn" onclick="nine()">9</button>
+            <button id="8" class="btn" onclick="eight()">8</button>
+            <button id="7" class="btn" onclick="seven()">7</button>
+            <button id="multiply" class="btn" onclick="multiply()">*</button><br>
+            <button id="6" class="btn" class="btn" onclick="six()">6</button>
+            <button id="5" class="btn" onclick="five()">5</button>
+            <button id="4" class="btn" onclick="four()">4</button>
+            <button id="divide" class="btn" onclick="divide()">/</button><br>
+            <button id="3" class="btn" onclick="three()">3</button>
+            <button id="2" class="btn" onclick="two()">2</button>
+            <button id="1" class="btn" onclick="one()">1</button>
+            <button id="plus" class="btn" onclick="plus()">+</button><br>
+            <button id="equals" class="btn" onclick="equals()">=</button>
+            <button id="0" class="btn" onclick="zero()">0</button>
+            <button id="decimal" class="btn" onclick="decimal()">.</button>
+            <button id="minus" class="btn" onclick="minus()">-</button>
+        </div>
+    </div>
+    <style>
+        button.btn {
+            background-color: rgb(53, 51, 52);
+            width: 60px;
+            padding-top: 10px;
+            color: white;
+        }
+        button.btn:hover {
+            background-color: rgb(19, 98, 245);
+            width: 60px;
+            padding-top: 10px;
+        }
+    </style>
+    <script>
+        let signs = [];
+        function decimal(){
+            const decimal = document.getElementById('decimal').innerText
+            document.getElementById('textbox').value =  document.getElementById('textbox').value + decimal 
+        }
+        function nine(){
+            const nines = document.getElementById('9').innerText
+            document.getElementById('textbox').value =  document.getElementById('textbox').value + nines 
+        }
+        function eight(){
+            const eights = document.getElementById('8').innerText
+            document.getElementById('textbox').value = document.getElementById('textbox').value + eights       
+        }
+        function seven(){
+            const sevens = document.getElementById('7').innerText
+            document.getElementById('textbox').value = document.getElementById('textbox').value + sevens 
+        }
+        function six(){
+            const sixs = document.getElementById('6').innerText
+            document.getElementById('textbox').value = document.getElementById('textbox').value + sixs       
+        }
+        function five(){
+            const fives = document.getElementById('5').innerText
+            document.getElementById('textbox').value =  document.getElementById('textbox').value + fives 
+        }
+        function four(){
+            const fours = document.getElementById('4').innerText
+            document.getElementById('textbox').value = document.getElementById('textbox').value + fours       
+        }
+        function three(){
+            const threes = document.getElementById('3').innerText
+            document.getElementById('textbox').value =  document.getElementById('textbox').value + threes 
+        }
+        function two(){
+            const twos = document.getElementById('2').innerText
+            document.getElementById('textbox').value = document.getElementById('textbox').value + twos       
+        }
+        function one(){
+            const ones = document.getElementById('1').innerText
+            document.getElementById('textbox').value =  document.getElementById('textbox').value + ones 
+        }
+        function zero(){
+            const zeros = document.getElementById('0').innerText
+            if(document.getElementById('textbox').value > 0 ){
+                document.getElementById('textbox').value =  document.getElementById('textbox').value + zeros
+            }else{
+                document.getElementById('textbox').value = ''
+            }
+            
+        }
+
+        //initial_num is the number before you enter your number
+        //current_num is the number before you click the sign
+        //next_num is the number after you click the sign
+        let initial_num = Number(document.getElementById('textbox').value)
+        function plus(){
+            current_num = Number(document.getElementById('textbox').value)
+            next_num = current_num + initial_num
+            document.getElementById('textbox').value = ''
+            initial_num = current_num
+            current_num=next_num
+            signs.push("+")
+        }
+        function minus(){
+            current_num = Number(document.getElementById('textbox').value)
+            next_num = initial_num - current_num
+            document.getElementById('textbox').value = ''
+            initial_num = current_num
+            current_num=next_num
+            signs.push("-")
+        }
+        function multiply(){
+            current_num = Number(document.getElementById('textbox').value)
+            next_num = current_num*initial_num
+            document.getElementById('textbox').value = ''
+            initial_num = current_num
+            current_num=next_num
+            signs.push("*")
+        }
+        function divide(){
+            current_num = Number(document.getElementById('textbox').value)
+            next_num = initial_num/current_num
+            document.getElementById('textbox').value = ''
+            initial_num = current_num
+            current_num=next_num
+            signs.push("/")
+        }
+        function equals(){
+            if(signs[(signs.length - 1)] === '+'){
+                plus();
+                document.getElementById('textbox').value = next_num
+            }
+            else if(signs[(signs.length - 1)] === '-'){
+                minus();
+                document.getElementById('textbox').value = next_num
+            }
+            else if(signs[(signs.length - 1)] === '*'){
+                multiply();
+                document.getElementById('textbox').value = next_num
+            }
+            else if(signs[(signs.length - 1)] === '/'){
+                divide();
+                document.getElementById('textbox').value = next_num
+            }
+        }
+        
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Portfolio Details - Personal Bootstrap Template</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <!-- =======================================================
+        * Template Name: Personal - v4.7.0
+        * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+      </head>
+<body>
+    <div id="container">
+        <div id="dino"></div>
+        <div id="cactus"></div>
+    </div> 
+    <style>
+        div#container{
+            height: 200px;
+            width: 600px;
+            border: 1px solid rgb(64, 243, 133);
+            margin: auto;
+        }
+        #dino{
+            height: 40px;
+            width: 40px;
+            background-color: rgb(235, 88, 88);
+            border-radius: 50%;
+            position: relative;
+            top: 160px;
+       
+        }
+        .jump{
+            animation: jump 1s linear;
+        }
+        #cactus{
+            height: 30px;
+            width: 20px;
+            position: relative;
+            top: 130px;
+            background-color: rgb(29, 133, 151);
+            left: 580px;
+            animation: block 2s infinite linear;
+        }
+
+        @keyframes jump{
+            0%{
+                top: 160px;
+            }
+            25%{
+                top: 80px;
+            }
+            50%{
+                top: 40px;
+            }
+            75%{
+                top: 80px;
+            }
+            100%{
+                top: 160px;
+            }
+        }
+        @keyframes block{
+            0%{
+                left: 580px;
+            }
+            
+            100%{
+                left: 0px;
+            }
+        }
+    </style>
+    <script>
+        const dino = document.getElementById('dino')
+        const cactus = document.getElementById('cactus')
+        game_Over=false
+
+        if(game_Over === false){
+            document.addEventListener('keydown', function(event){
+            jump();
+        })
+        }else{
+            document.body.innerHTML = 'Game Over your high score is ' + i
+        }
+        
+        function jump(){
+            if(dino.classList != 'jump'){
+                dino.classList.add('jump')
+                setTimeout(() => {
+
+                    dino.classList.remove('jump')
+                }, timeout=1000);
+            }
+        }
+        let i = 0;
+        let gameOver = setInterval(() => {
+            
+            let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top")); 
+            let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue('left'))
+            if(dinoTop>=130 && cactusLeft<=40){
+                document.body.innerHTML = 'Game Over your high score is ' + i
+                game_Over = true
+            }else if(game_Over === false){
+                console.log(i)
+                i++;
+            }
+            
+        }, 10);
+        
+        
+        
+    </script>
+</body>
+</html>

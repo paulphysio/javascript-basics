@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="item" type="text">
+    <input id="price" type="counter"> 
+    <input id="quantity" type="text">
+    <button id="but" onclick = "addbutton()" >Add todo</button>
+    <button id="cal" onclick = "cal()" >Calculate</button>
+    <button id="boo" onclick = "adder()" ></button>
+    <div id="item-list"></div>
+    <div id="item-cal"></div>
+    <script>
+        let button_adder = document.getElementById('boo').innerText = 3;
+        const pussy = 'pussy'
+        const todos = ['come home', 'i want you', 'you are mine']
+        let list;
+       //model section
+
+       const savedItem = JSON.parse(localStorage.getItem('items'));
+        
+        if(Array.isArray(savedItem)){
+            list = savedItem;
+        }else{
+            list = [{
+                items:'apple',
+                prices: 5,
+                quantities: 3,
+                id: 'id1'
+            },
+            {
+                items:'pear',
+                prices: 4,
+                quantities: 4,
+                id: 'id2'        
+            },
+            {
+                items:'orange',
+                prices: 2,
+                quantities: 5,
+                id: 'id3'
+            }]
+        }
+
+        
+        //create new item
+        function create(items, prices, quantities){
+                    const id = new Date().getTime()
+
+                    list.push({
+                        items: items,
+                        prices: prices,
+                        quantities: quantities,
+                        id: ''+id,
+                    });
+                    
+                    saveItems();
+        }
+        //delete new item
+        function removeItem(idToDelete){
+            list = list.filter(function (item){
+                if (item.id === idToDelete){
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+            saveItems();
+        }
+
+        function saveItems(){
+            localStorage.setItem('items', JSON.stringify(list));
+        }
+
+        // end of model section
+        //view section
+        function cal(){            
+            calcu = 0;
+            list.forEach((item) =>{
+            document.getElementById('item-cal').innerHTML = ''
+
+            const element = document.createElement('div');
+            calcu = item.prices*item.quantities + calcu;
+            element.innerText = calcu;
+            document.getElementById('item-cal').appendChild(element);
+        })}
+        function deleteTodo(event){
+            const deleteButton = event.target;
+            const idToDelete = deleteButton.id;
+            removeItem(idToDelete);
+            
+            render();
+        }
+        
+        function render(){
+            document.getElementById('item-list').innerHTML = ''
+            list.forEach((item) =>{
+                
+                const element = document.createElement('div');
+                element.innerText = item.items.toUpperCase() + ' ' + item.prices + ' ' + item.quantities;
+                
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'Delete'
+                deleteButton.style = 'margin-left: 10px;'
+                deleteButton.onclick = deleteTodo;
+                deleteButton.id = item.id;
+
+                element.appendChild(deleteButton)
+                
+                document.getElementById('item-list').appendChild(element);
+                
+            })
+            
+        }
+        render();
+        //controller section
+        
+        function addbutton(){
+                const itemsBox = document.getElementById('item');
+                const items = itemsBox.value;
+                const priceBox = document.getElementById('price');
+                const prices = priceBox.value;
+                const quantityBox = document.getElementById('quantity');
+                const quantities = quantityBox.value;
+                create(items, prices, quantities);
+                render();
+        }
+        function adder(){
+            button_adder -=1
+            
+            document.getElementById('boo').innerText = button_adder;
+        }
+    </script>
+</body>
+</html>
